@@ -3,6 +3,9 @@ package main
 import "fmt"
 
 func main() {
+
+	/**** 🎃 variable and string-number 🎃 ****/
+
 	// variable can declare with type and shorthand
 	// string
 	name := "aun"
