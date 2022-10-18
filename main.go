@@ -1,34 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 func main() {
 
-	/**** 🎃 Array and Slice 🎃 ****/
+	/**** 🎃 The standard Library 🎃 ****/
 
-	//Arrays
-	number := [3]int{4, 50, 60}
-	name := [2]string{"hi", "anyoung"}
-	fmt.Println(number, len(number), "number & lenght")
-	fmt.Println(name, len(name), "name  & lenght")
-	// slice use array under the hood
-	score := []int{100, 50, 70}
-	// 🎃 not working
-	score[2] = 35
-	// 🧚🏻 it's work
-	score = append(score, 60)
-	fmt.Println(score, len(score))
-	// slice range
-	fruities := []string{"apple", "pineapple", "dragonfruit", "giwi"}
-	// 🎃 start and get me up to position end
-	// but not including end position to arr
-	rangefruities1 := fruities[1:3]
-	// 🎃 start - the end of arr
-	rangefruities2 := fruities[2:]
-	// 🎃 the start of arr - before end position
-	rangefruities3 := fruities[:3]
-	fmt.Println(rangefruities1, "range fruit1")
-	fmt.Println(rangefruities2, "range fruit2")
-	fmt.Println(rangefruities3, "range fruit3")
+	//strings
+	greeting := "hello ginger breads"
+	// 🌝 check text in variable
+	fmt.Println(strings.Contains(greeting, "aun"))           // get false ❌
+	fmt.Println(strings.Contains(greeting, "hello"))         // get true  ✅
+	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi")) // replace but not change value in via
+	fmt.Println(strings.ToUpper(greeting))
+	fmt.Println(strings.Index(greeting, "g"))
+	fmt.Println(strings.Split(greeting, " "))
+	fmt.Println(strings.Split(greeting, "ginger"))
 
+	//sort
+	names := []string{"may", "nui", "noey", "aun", "elle"}
+	sort.Strings(names)
+	search := sort.SearchStrings(names, "may")
+	fmt.Println(names, search)
 }
