@@ -3,17 +3,29 @@ package main
 import "fmt"
 
 func main() {
-	// variable can declare with type and shorthand
-	// string
-	name := "aun"
-	var name1 = "apunn"
-	var name2 string = "pun"
-	// number
-	num := 1
-	var num1 int = 2
-	var num2 float32 = 1.3
-	// bit and memory
-	var value uint8 = 255
-	var value1 uint16 = 30000
-	fmt.Println(name, name1, name2, num, num1, num2, value, value1)
+	//Arrays
+	number := [3]int{4, 50, 60}
+	name := [2]string{"hi", "anyoung"}
+	fmt.Println(number, len(number), "number & lenght")
+	fmt.Println(name, len(name), "name  & lenght")
+	// slice use array under the hood
+	score := []int{100, 50, 70}
+	// 🎃 not working
+	score[2] = 35
+	// 🧚🏻 it's work
+	score = append(score, 60)
+	fmt.Println(score, len(score))
+	// slice range
+	fruities := []string{"apple", "pineapple", "dragonfruit", "giwi"}
+	// 🎃 start and get me up to position end
+	// but not including end position to arr
+	rangefruities1 := fruities[1:3]
+	// 🎃 start - the end of arr
+	rangefruities2 := fruities[2:]
+	// 🎃 the start of arr - before end position
+	rangefruities3 := fruities[:3]
+	fmt.Println(rangefruities1, "range fruit1")
+	fmt.Println(rangefruities2, "range fruit2")
+	fmt.Println(rangefruities3, "range fruit3")
+
 }
