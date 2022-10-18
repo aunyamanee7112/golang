@@ -3,6 +3,9 @@ package main
 import "fmt"
 
 func main() {
+
+	/**** 🎃 Array and Slice 🎃 ****/
+
 	//Arrays
 	number := [3]int{4, 50, 60}
 	name := [2]string{"hi", "anyoung"}
