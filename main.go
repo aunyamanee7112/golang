@@ -1,29 +1,32 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-	"strings"
-)
+import "fmt"
 
 func main() {
+	/**** 🎃 Loops 🎃 ****/
+	x := 5
+	// ❌ not recommend
+	for x < 5 {
+		// fmt.Print("value of x ", x)
+		// x++
+	}
+	// ✅ recommend
+	for i := 0; i < 10; i++ {
+		// fmt.Println(i)
+	}
 
-	/**** 🎃 The standard Library 🎃 ****/
+	// example
+	list := []string{"aun", "nui", "noey"}
+	for i := 0; i < len(list); i++ {
+		// fmt.Println(list[i])
+	}
 
-	//strings
-	greeting := "hello ginger breads"
-	// 🌝 check text in variable
-	fmt.Println(strings.Contains(greeting, "aun"))           // get false ❌
-	fmt.Println(strings.Contains(greeting, "hello"))         // get true  ✅
-	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi")) // replace but not change value in via
-	fmt.Println(strings.ToUpper(greeting))
-	fmt.Println(strings.Index(greeting, "g"))
-	fmt.Println(strings.Split(greeting, " "))
-	fmt.Println(strings.Split(greeting, "ginger"))
+	for index, value := range list {
+		fmt.Printf("this index is %v and this value is %v \n", index, value)
+	}
+	// need only value
+	for _, value := range list {
+		fmt.Printf("value is %v \n", value)
+	}
 
-	//sort
-	names := []string{"may", "nui", "noey", "aun", "elle"}
-	sort.Strings(names)
-	search := sort.SearchStrings(names, "may")
-	fmt.Println(names, search)
 }
