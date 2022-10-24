@@ -2,36 +2,30 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"strings"
 )
 
-func sayGreeting(n string) {
-	fmt.Printf("hi good morning %v \n", n)
-}
-func sayGoodbye(n string) {
-	fmt.Printf("hi goodbye %v \n", n)
-}
-func renderName(n []string, f func(string)) {
-	for _, v := range n {
-		f(v)
-		sayGoodbye(v)
+// func name (props) (values for return) {}
+func getInitial(word string) (string, string) {
+	upper := strings.ToUpper(word)
+	names := strings.Split(upper, " ")
+
+	var initials []string
+	for _, v := range names {
+		initials = append(initials, v[:1])
 	}
+	if len(initials) > 1 {
+		return initials[0], initials[1]
+	}
+	return initials[0], "_"
 }
-func calCircle(r float64) float64 {
-	return math.Pi * r * r
-	// assign type on function again because value return is over float64
-}
-
 func main() {
-	/**** 🎃 Using Functions 🎃 ****/
+	/**** 🎃 Multiple Return Values 🎃 ****/
+	/**** ✨ Multiple Return Values have to declare in func ,
+	variable on call func ****/
+	firstword1, secword1 := getInitial("Toshi")
+	firstword2, secword2 := getInitial("Toshi Yamazaki")
+	fmt.Printf("firstword1 is %v and secword2 is %v ", firstword1, secword1)
+	fmt.Printf("firstword2 is %v and secword2 is %v ", firstword2, secword2)
 
-	// normal test
-	sayGreeting("aun")
-	sayGoodbye("aun")
-	// test with func loop
-	friends := []string{"aun", "elle", "noey", "nui", "ky", "mhon"}
-	renderName(friends, sayGreeting)
-	// finding area circle
-	circle := calCircle(10.7)
-	fmt.Printf("this circle area is %0.3f", circle)
 }
