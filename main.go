@@ -1,24 +1,37 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
+
+func sayGreeting(n string) {
+	fmt.Printf("hi good morning %v \n", n)
+}
+func sayGoodbye(n string) {
+	fmt.Printf("hi goodbye %v \n", n)
+}
+func renderName(n []string, f func(string)) {
+	for _, v := range n {
+		f(v)
+		sayGoodbye(v)
+	}
+}
+func calCircle(r float64) float64 {
+	return math.Pi * r * r
+	// assign type on function again because value return is over float64
+}
 
 func main() {
-	/**** 🎃 Booleans & Conditionals 🎃 ****/
-	age := 45
-	if age <= 45 {
-		fmt.Println("this value less than 45")
-	}
-	// stagement inside the loops
-	names := []string{"the8", "jun", "hoshi", "jeonghun", "wooji"}
-	for index, value := range names {
-		if index == 2 {
-			fmt.Println("continuing at pos", index)
-			continue
-		}
-		if index > 2 {
-			fmt.Println("breaking at pos", index)
-			break
-		}
-		fmt.Printf("the value at pos %v is %v \n", index, value)
-	}
+	/**** 🎃 Using Functions 🎃 ****/
+
+	// normal test
+	sayGreeting("aun")
+	sayGoodbye("aun")
+	// test with func loop
+	friends := []string{"aun", "elle", "noey", "nui", "ky", "mhon"}
+	renderName(friends, sayGreeting)
+	// finding area circle
+	circle := calCircle(10.7)
+	fmt.Printf("this circle area is %0.3f", circle)
 }
