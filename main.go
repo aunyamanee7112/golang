@@ -3,30 +3,22 @@ package main
 import "fmt"
 
 func main() {
-	/**** 🎃 Loops 🎃 ****/
-	x := 5
-	// ❌ not recommend
-	for x < 5 {
-		// fmt.Print("value of x ", x)
-		// x++
+	/**** 🎃 Booleans & Conditionals 🎃 ****/
+	age := 45
+	if age <= 45 {
+		fmt.Println("this value less than 45")
 	}
-	// ✅ recommend
-	for i := 0; i < 10; i++ {
-		// fmt.Println(i)
+	// stagement inside the loops
+	names := []string{"the8", "jun", "hoshi", "jeonghun", "wooji"}
+	for index, value := range names {
+		if index == 2 {
+			fmt.Println("continuing at pos", index)
+			continue
+		}
+		if index > 2 {
+			fmt.Println("breaking at pos", index)
+			break
+		}
+		fmt.Printf("the value at pos %v is %v \n", index, value)
 	}
-
-	// example
-	list := []string{"aun", "nui", "noey"}
-	for i := 0; i < len(list); i++ {
-		// fmt.Println(list[i])
-	}
-
-	for index, value := range list {
-		fmt.Printf("this index is %v and this value is %v \n", index, value)
-	}
-	// need only value
-	for _, value := range list {
-		fmt.Printf("value is %v \n", value)
-	}
-
 }
